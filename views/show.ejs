@@ -44,11 +44,23 @@
                     <p class="card-text">
                         <b>Created by :  <%= findcontent.mentor %></b>
                     </p>
-                    <%if(curUser){%>
-                        <form id="payment"><button class="btn add-btn ">Enroll Now</button></form>
-                    <%}%>
+                    <% if (curUser) { %>
+                        <% if(findcontent.price > 0){%>
+                        <form class="payment-form">
+                            <input type="hidden" name="courseId" value="<%= findcontent._id %>">
+                            <button type="button" class="btn add-btn" onclick="payNow('<%= findcontent._id %>')">Enroll Now</button>
+                        </form>
+                        <%}else{%>
+                            <form id="payment"><button class="btn add-btn ">Enroll Now</button></form>
+                        <%}%>
+                    <% } %>
                 </div>
             </div>
         </div>
-        
-    </body>
+<script>
+    const RAZORPAY_KEY = "<%= process.env.RAZORPAY_KEY_ID %>";
+    const username = "<%= curUser.name %>";
+</script>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+</body>

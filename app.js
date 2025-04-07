@@ -20,12 +20,17 @@ app.use(methodOverride('_method'))
 app.engine('ejs',ejsMate)
 app.use(express.static(path.join(__dirname, '/public')))
 app.use(express.static('public'));
+require("dotenv").config();
 
 const courses = require('./models/course')
 
 const user = require('./routes/user.js')
 const User = require('./models/user.js')
 const passport = require('passport')
+
+// payment
+const paymentRoutes = require("./routes/paymentroutes");
+
 
 const store = Mongstore.create({
     mongoUrl:"mongodb://localhost:27017/lms",
@@ -66,7 +71,8 @@ app.use((req,res,next)=>{
     res.locals.curUser = req.user
     next()
 })
-
+// payment
+app.use("/payment", paymentRoutes);
 
 async function main (){
     mongoose.connect("mongodb://localhost:27017/lms");
