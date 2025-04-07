@@ -1,0 +1,101 @@
+<style>
+    .btn-search {
+      background-color: #8230b9;
+      color: white;
+      border-radius: 25px;
+    }
+  
+    .btn-search:hover {
+      background-color: #8230b9;
+      color: white;
+    }
+  
+    .serach-inp {
+      border-radius: 25px !important;
+      padding: 0.5rem 2rem 0.5rem 2rem !important;
+    }
+  
+    .user-menu {
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
+    }
+  
+    .user-icon {
+      font-size: 24px;
+      color: #8230b9;
+      margin-right: 10px;
+      margin-left: 20px;
+      padding: 5px;
+      border: 2px solid #8230b9;
+      border-radius: 50%;
+    }
+  
+    .dropdown {
+      display: none;
+      position: absolute;
+      background-color: white;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+      border-radius: 5px;
+      min-width: 100px;
+      right: 0;
+      top: 30px;
+    }
+  
+    .dropdown-item {
+      display: block;
+      padding: 8px 12px;
+      text-decoration: none;
+      color: black;
+    }
+  
+    .dropdown-item:hover {
+      background-color: #f1f1f1;
+    }
+  </style>
+  
+  <nav class="navbar navbar-expand-lg bg-body-white border-bottom sticky-top">
+    <div class="container-fluid">
+      <a class="nav"><img src="https://i.ibb.co/20snxF2F/EDURAFT.png" alt="EDURAFT" style="width: 150px;" /></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+         <a class="nav-link" href="/eduraft">Home</a>
+          <a class="nav-link" href="/eduraft/about">About</a>
+          <a class="nav-link" href="/eduraft/explorecourse">Explore Course</a>
+        </div>
+        <div class="navbar-nav ms-auto">
+            <div class="user-menu">
+              <i class="fa-solid fa-user user-icon" onclick="toggleDropdown()"></i>
+              <div class="dropdown" id="dropdownMenu">
+                <% if (!curUser) { %>
+                <a href="/login" class="dropdown-item">Login</a>
+                <a href="/signup" class="dropdown-item">Sign Up</a>
+                <%} else{%>
+                <a href="/eduraft/myaccount" class="dropdown-item">My Account</a>
+                <a class="nav-link" href="/logout">Log out</a>
+                <%}%>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <script>
+    function toggleDropdown() {
+      const dropdown = document.getElementById("dropdownMenu");
+      dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+    }
+  
+    document.addEventListener("click", function (event) {
+      const dropdown = document.getElementById("dropdownMenu");
+      const icon = document.querySelector(".user-icon");
+      if (!icon.contains(event.target) && !dropdown.contains(event.target)) {
+        dropdown.style.display = "none";
+      }
+    });
+  </script>

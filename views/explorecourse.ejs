@@ -1,0 +1,28 @@
+<% layout('/layout/template') %>
+
+<div class="bodyContent mt-5">
+    <div class="popular">
+        <p>Unlock your</p>
+        <h2
+          style="background-image: url('https://png.pngtree.com/png-clipart/20220708/ourmid/pngtree-pink-purple-brush-stroke-oil-painting-png-image_5769912.png'); ">
+          Learning Journey</h2>
+      </div>
+    <div class="row row-cols-lg-4 row-cols-md-3 row-cols-sm-1">
+
+      <%for(content of allcourse){%>
+          <a href="/eduraft/<%=content._id%>" class="showlinks">
+            <div class="card col">
+              <img src="<%= content.image.url %>" class="card-img-top" alt="property_image" style="height: 18rem;">
+              <div class="card-body">
+                <p class="card-text">
+                  <b>
+                    <%= content.title%>
+                  </b><br>
+                  Price : &#8377; <%= content.price.toLocaleString('en-IN') %>
+                </p>
+              </div>
+            </div>
+          </a>
+      <% }%>
+    </div>
+  </div>

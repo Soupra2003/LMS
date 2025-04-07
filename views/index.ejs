@@ -1,0 +1,123 @@
+<% layout('/layout/template') %>
+
+  <div id="carouselExampleIndicators" class="carousel slide">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+        aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+        aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+        aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <a href="/eduraft/67f2718a1cf4f563093e5a6c"><img src="/Source/crousel 1.png" class="d-block w-100" alt="..."></a>
+      </div>
+      <div class="carousel-item">
+        <a href="/eduraft/67f16d8a0540a43f769f0c21"><img src="/Source/java.png" class="d-block w-100" alt="..."></a>
+      </div>
+      <div class="carousel-item">
+      <a href="/eduraft/67f16d8a0540a43f769f0c23"><img src="/Source/deep.png" class="d-block w-100" alt="..."></a>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+      data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+      data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+  <!-- trending course -->
+  <div class="bodyContent mt-5">
+    <div class="popular">
+      <p>Discover</p>
+      <h2
+        style="background-image: url('https://png.pngtree.com/png-clipart/20220708/ourmid/pngtree-pink-purple-brush-stroke-oil-painting-png-image_5769912.png'); ">
+        Trending Courses</h2>
+    </div>
+    <div class="row row-cols-lg-4 row-cols-md-3 row-cols-sm-1 ">
+
+      <%for(content of allcontent){%>
+        <%if(content.tag=="trending"){%>
+          <a href="/eduraft/<%=content._id%>" class="showlinks">
+            <div class="card col">
+              <img src="<%= content.image.url %>" class="card-img-top" alt="property_image" style="height: 18rem;">
+              <div class="card-body">
+                <p class="card-text">
+                  <b>
+                    <%= content.title%>
+                  </b><br>
+                  Price : &#8377; <%= content.price.toLocaleString('en-IN') %>
+                </p>
+              </div>
+            </div>
+          </a>
+          <% }%>
+            <%}%>
+    </div>
+  </div>
+  <!-- popular courses -->
+  <div class="bodyContent mt-5">
+    <div class="popular">
+      <p>Explore</p>
+      <h2
+        style="background-image: url('https://png.pngtree.com/png-clipart/20220708/ourmid/pngtree-pink-purple-brush-stroke-oil-painting-png-image_5769912.png'); ">
+        Our Popular Courses</h2>
+    </div>
+    <div class="row row-cols-lg-4 row-cols-md-3 row-cols-sm-1 ">
+      <%for(content of allcontent){%>
+        <%if(content.tag=='Popular' ){%>
+          <a href="/eduraft/<%=content._id%>" class="showlinks">
+            <div class="card col">
+              <img src="<%= content.image.url %>" class="card-img-top" alt="property_image" style="height: 18rem;">
+              <div class="card-body">
+                <p class="card-text">
+                  <b>
+                    <%= content.title%>
+                  </b><br>
+                  Price : &#8377; <%= content.price.toLocaleString('en-IN') %><i class="afterTax"> &nbsp; </i>
+                </p>
+              </div>
+            </div>
+          </a>
+        <% }%>
+      <%}%>
+    </div>
+  </div>
+  <!-- free courses -->
+  <div class="bodyContent mt-5">
+    <div class="popular">
+      <p>There's always more</p>
+      <h2
+        style="background-image: url('https://png.pngtree.com/png-clipart/20220708/ourmid/pngtree-pink-purple-brush-stroke-oil-painting-png-image_5769912.png'); ">
+        Free Courses</h2>
+    </div>
+    <div class="row row-cols-lg-4 row-cols-md-3 row-cols-sm-1 ">
+      <%for(content of allcontent){%>
+        <%if(content.tag=='free' ){%>
+          <a href="/eduraft/<%=content._id%>" class="showlinks">
+            <div class="card col">
+              <img src="<%= content.image.url %>" class="card-img-top" alt="property_image" style="height: 18rem;">
+              <div class="card-body">
+                <p class="card-text">
+                  <b>
+                    <%= content.title%>
+                  </b><br>
+                  <%if(content.price >0){%>
+                    <p class="pricetag">Price : &#8377; <%= findcontent.price.toLocaleString('en-IN') %></p>
+                    <%}else{%> 
+                    <p>Free</p>
+                  <%}%>
+                </p>
+              </div>
+            </div>
+          </a>
+        <% }%>
+      <%}%>
+    </div>
+  </div>

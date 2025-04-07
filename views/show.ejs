@@ -1,0 +1,54 @@
+<% layout('/layout/template') %>
+
+    <body>
+        <div class="divide row">
+            <!-- Left Card -->
+            <div class="card col-7">
+                <div class="card-body">
+                    <h4 class="card_title">
+                        <%= findcontent.title %>
+                    </h4>
+        
+                    <div class="feature-box mt-6">
+                        <div class="badge">Free Lifetime Access</div>
+                        <div class="features">
+                            <div class="feature">
+                                <h3>No Experience Needed</h3>
+                                <p>Start from scratch<br>and build up</p>
+                            </div>
+                            <div class="feature">
+                                <h3>Flexible Schedule</h3>
+                                <p>Learn at your<br>own pace</p>
+                            </div>
+                            <div class="feature">
+                                <h3>Get Job-Ready</h3>
+                                <p>Acquire essential<br>job skills</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="details mt-5">
+                        <p><%=findcontent.description%></p>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- Right Card -->
+            <div class="card2 col-4 mt-5">
+                <img src="<%= findcontent.image.url %>" class="card-img-top" alt="Course Image" style="height: 18rem; object-fit: cover;">
+                <%if(findcontent.price >0){%>
+                <p class="pricetag">Price : &#8377; <%= findcontent.price.toLocaleString('en-IN') %></p>
+                <%}else{%> 
+                <p class="pricetag">Free</p>
+                <%}%>
+                <div class="card-body">
+                    <p class="card-text">
+                        <b>Created by :  <%= findcontent.mentor %></b>
+                    </p>
+                    <%if(curUser){%>
+                        <form id="payment"><button class="btn add-btn ">Enroll Now</button></form>
+                    <%}%>
+                </div>
+            </div>
+        </div>
+        
+    </body>

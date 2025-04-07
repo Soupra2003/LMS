@@ -1,0 +1,35 @@
+<% layout('/layout/template') %>
+
+<div class="container mt-5">
+    <div class="row align-items-center" style="font-family: Verdana, Geneva, Tahoma, sans-serif;">
+      <!-- Left Side -->
+      <div class="col-md-7">
+        <div class="popular" style="color: #8230b9;">
+            <h2 style="background-image: url('https://png.pngtree.com/png-clipart/20220708/ourmid/pngtree-pink-purple-brush-stroke-oil-painting-png-image_5769912.png');">
+              Login
+            </h2>
+          </div>
+        <form action="/login" method="post" class="needs-validation" novalidate>
+          <div class="mb-3">
+            <label for="username" class="form-label bold">Enter Username:</label>
+            <input name="username" type="text" class="form-control" id="username" required>
+          </div>
+  
+          <div class="mb-3">
+            <label for="password" class="form-label bold">Password:</label>
+            <input name="password" type="password" class="form-control" id="password" required>
+          </div>
+  
+          <button class="btn add-btn mb-3">Login</button>
+        </form>
+      </div>
+  
+      <!-- Right Side -->
+      <div class="col-md-5 text-center">
+        <img
+          src="https://media.istockphoto.com/id/1221578901/vector/2fa-authentication-password-secure-notice-login-verification-or-sms-with-push-code-message.jpg?s=612x612&w=0&k=20&c=zganV8pxvPCp2aNZG6uDHL_qStrXerKneEcWRFxkVQA="
+          alt="Signup Illustration" class="img-fluid">
+      </div>
+    </div>
+  </div>
+  

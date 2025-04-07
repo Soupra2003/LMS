@@ -1,0 +1,37 @@
+<% layout('/layout/template') %>
+
+<div class="container mt-5">
+    <div class="row align-items-center">
+      <!-- Left Side -->
+      <div class="col-md-7" style="font-family: Verdana, Geneva, Tahoma, sans-serif;">
+        <div class="popular" style="color: #8230b9;">
+          <h2 style="background-image: url('https://png.pngtree.com/png-clipart/20220708/ourmid/pngtree-pink-purple-brush-stroke-oil-painting-png-image_5769912.png');">
+            SignUp
+          </h2>
+        </div>
+        <form action="/signup" method="post" class="needs-validation" novalidate>
+          <div class="mb-3">
+            <label for="username" class="form-label bold">Enter Username:</label>
+            <input name="username" type="text" class="form-control" id="username" required>
+            <div class="valid-feedback">Looks good!</div>
+            <div class="invalid-feedback">Please provide Username</div>
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label bold">Email</label>
+            <input name="email" type="email" class="form-control" id="email" required>
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label bold">Password</label>
+            <input name="password" type="password" class="form-control" id="password" required>
+          </div>
+          <button class="btn add-btn mb-3">SignUp</button>
+        </form>
+      </div>
+  
+      <!-- Right Side -->
+      <div class="col-md-5 text-center">
+        <img src="https://cdni.iconscout.com/illustration/premium/thumb/man-and-woman-choose-shirt-from-online-shopping-catalogue-illustration-download-in-svg-png-gif-file-formats--shop-store-cloth-mobile-e-commerce-pack-illustrations-8006076.png" alt="Signup Illustration" class="img-fluid">
+      </div>
+    </div>
+  </div>
+  

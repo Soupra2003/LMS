@@ -1,0 +1,14 @@
+<% if (success && success.length) { %>
+    <div id="flash-success" class="alert alert-success alert-dismissible fade show position-fixed top-0 end-0 m-4 shadow-lg" style="min-width: 300px; z-index: 1055; animation: slideIn 0.5s ease-out;">
+      <%= success %>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  <% } %>
+  
+  <% if (error && error.length) { %>
+    <div id="flash-error" class="alert alert-danger alert-dismissible fade show position-fixed top-0 end-0 m-4 shadow-lg" style="min-width: 300px; z-index: 1055; animation: slideIn 0.5s ease-out;">
+      <%= error %>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  <% } %>
+  
