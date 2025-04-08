@@ -18,41 +18,6 @@
   })
 })()
 
-//for comment and review 
-
-// document.addEventListener("DOMContentLoaded", () => {
-//   // Select all "More" toggle links
-//   const toggleLinks = document.querySelectorAll(".toggle-comment");
-
-//   toggleLinks.forEach(link => {
-//     link.addEventListener("click", (event) => {
-//       event.preventDefault(); // Prevent default link behavior
-//       const id = link.getAttribute("data-id");
-
-//       // Get short and full comment elements
-//       const shortComment = document.getElementById(`short-${id}`);
-//       const fullComment = document.getElementById(`full-${id}`);
-
-//       // Check if short comment is currently hidden
-//       if (shortComment.style.display === "none") {
-//         // Show short comment, hide full comment
-//         shortComment.style.display = "inline";
-//         fullComment.style.display = "none";
-//         link.textContent = "More"; // Change link text to "More"
-//       } else {
-//         // Show full comment, hide short comment
-//         shortComment.style.display = "none";
-//         fullComment.style.display = "inline";
-//         link.textContent = "Less"; // Change link text to "Less"
-//       }
-//     });
-//   });
-// });
-
-
-
-// flash message
-
 
 // Auto-dismiss after 3 seconds
 setTimeout(() => {
@@ -93,6 +58,7 @@ async function payNow(courseId) {
     description: "Course Enrollment",
     order_id: order.id,
     handler: async function (response) {
+      response.courseId = courseId;
       const verifyRes = await fetch("/payment/verify", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -102,13 +68,13 @@ async function payNow(courseId) {
       const result = await verifyRes.json();
 
       if (result.success) {
-        window.location.href = "/success";
+        window.location.href =`/course/${courseId}`;
       } else {
-        window.location.href = "/course";
+        window.location.href = "/eduraft";
       }
     },
     prefill: {
-      name: username,
+      name: `${curUser.name}`,
       email: "<%= curUser.email %>"
     },
     theme: { color: "#3399cc" }

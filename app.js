@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 const express = require("express");
 const mongoose = require("mongoose");
 const session = require("express-session");
@@ -20,7 +22,7 @@ app.use(methodOverride('_method'))
 app.engine('ejs',ejsMate)
 app.use(express.static(path.join(__dirname, '/public')))
 app.use(express.static('public'));
-require("dotenv").config();
+
 
 const courses = require('./models/course')
 
