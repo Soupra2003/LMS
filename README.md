@@ -1,13 +1,13 @@
-### Learning Management System (LMS) – Full Stack Project
+# Learning Management System (LMS) – Full Stack Project
 
 ## Description:
 A fully functional Learning Management System (LMS) built using Node.js, Express.js, MongoDB, EJS, and Passport.js, designed to manage users, courses, and lessons effectively. This system supports role-based access, secure authentication, and payment integration for paid courses using Razorpay.
 
 ## Technologies Used:
-# Frontend:
+### Frontend:
 - EJS – For rendering dynamic HTML pages
 - CSS – Custom styling for layout and responsive design
-# Backend:
+### Backend:
 - Node.js & Express.js – Server-side logic and routing
 - MongoDB – NoSQL database for storing user and course data
 - Mongoose – MongoDB ODM for modeling and querying
